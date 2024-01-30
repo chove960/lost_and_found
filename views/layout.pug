@@ -1,0 +1,42 @@
+html
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Lost and Found Project
+
+    // Link to Bootstrap CSS from node_modules
+    link(rel="stylesheet", href="/node_modules/bootstrap/dist/css/bootstrap.min.css")
+    link(rel="stylesheet", href="/styles.css")
+   
+
+  body
+    // Navigation Bar
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      .container
+        a.navbar-brand(href="#") Lost & Found
+        button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarNav", aria-controls="navbarNav", aria-expanded="false", aria-label="Toggle navigation")
+          span.navbar-toggler-icon
+        .collapse.navbar-collapse#navbarNav
+          ul.navbar-nav
+            li.nav-item
+              a.nav-link(href="/") Home
+            li.nav-item
+              a.nav-link(href="/submitLostItem") Submit Lost Item
+            li.nav-item
+              a.nav-link(href="/submitFoundItem") Submit Found Item
+            li.nav-item
+              a.nav-link(href="/lostItems") Display Lost Items
+            li.nav-item
+              a.nav-link(href="/foundItems") Display Found Items
+            li.nav-item
+              a.nav-link(href="/about") About
+            li.nav-item
+              a.nav-link(href="/contactUs") Contact Us
+
+    // Main Content
+    .container.mt-4
+      block content
+
+    // Bootstrap JavaScript and dependencies from node_modules
+    script(src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js")
+

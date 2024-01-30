@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  h2.text-info Lost Items List
+  each lostItem in lostItems
+    .card.mb-3
+      .card-body
+        h5.card-title= lostItem.name
+        p.card-text
+          strong Date Lost:
+          | #{lostItem.date_lost.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+        p.card-text
+          strong Description:
+          | #{lostItem.description}
+        p.card-text
+          strong Contact Number:
+          | #{lostItem.phone_number}
+        p.card-text
+          strong Email:
+          | #{lostItem.email}
+        p.card-text
+          strong Place Lost:
+          | #{lostItem.place_lost}
+
+        - if (lostItem.picture)
+          script.
+            console.log('Picture path:', "#{lostItem.picture}");
+          img.card-img-top(src=`${lostItem.picture}`, alt="Lost Item Image",style="width: 200px; height: auto;")
+
+

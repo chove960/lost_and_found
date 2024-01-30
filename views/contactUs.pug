@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  .row
+    // Contact Information Card
+    .col-md-6
+      .card
+        .card-body
+          h2.card-title Contact Information
+          p.card-text For pickup and inquiries, please visit our location:
+          p.card-text Pickup Location: DIT (Dar es salaam institute of technology)
+          p.card-text Phone Number: +255762557888
+          p.card-text Address: Upanga dar es salaam
+
+    // Contact Form Card
+    .col-md-6
+      .card
+        .card-body
+          h2.card-title Contact Us
+          form(action="/contactUs", method="post")
+            .mb-3.form-group
+              label(for="name", class="form-label") Name:
+              input(type="text", id="name", name="name", class="form-control", required)
+              
+            .mb-3.form-group
+              label(for="email", class="form-label") Email:
+              input(type="email", id="email", name="email", class="form-control", required)
+              
+            .mb-3.form-group
+              label(for="message", class="form-label") Message:
+              textarea(id="message", name="message", class="form-control", rows="4", required)
+              
+            button(type="submit", class="btn btn-primary") Submit
+
+
+

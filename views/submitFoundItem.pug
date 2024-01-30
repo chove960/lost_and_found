@@ -1,0 +1,52 @@
+extends layout
+
+block content
+  h2.text-success Submit Found Item
+  form(action="/submitFoundItem", method="post",enctype="multipart/form-data")
+   
+    .card
+      .card-body
+        h5.card-title Found Item Details
+
+        // Item Name
+        .mb-3
+          label(for="name", class="form-label") Item Name:
+          input(type="text", id="name", class="form-control", name="name")
+
+        // Date Lost
+        .mb-3
+          label(for="date_found", class="form-label") Date Found:
+          input(type="date", id="date_found", class="form-control", name="date_found")
+
+        // Description
+        .mb-3
+          label(for="description", class="form-label") Description:
+          textarea(id="description", class="form-control", name="description")
+
+    // Bootstrap Card for Contact Information and Picture
+    .card.mt-3
+      .card-body
+        h5.card-title Contact Information and Picture
+
+        // Picture Upload
+        .mb-3
+          label(for="picture", class="form-label") Picture:
+          input(type="file", id="picture", class="form-control", name="picture")
+
+        // Contact Number
+        .mb-3
+          label(for="phone_number", class="form-label") Contact Number:
+          input(type="tel", id="phone_number", class="form-control", name="phone_number")
+
+        // Email
+        .mb-3
+          label(for="email", class="form-label") Email:
+          input(type="email", id="email", class="form-control", name="email")
+
+        // Place Lost
+        .mb-3
+          label(for="place_lost", class="form-label") Place Lost:
+          input(type="text", id="place_found", class="form-control", name="place_found")
+
+    // Submit Button
+    button(type="submit", class="btn btn-primary mt-3") Submit

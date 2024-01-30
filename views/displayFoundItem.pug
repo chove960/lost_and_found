@@ -1,0 +1,28 @@
+extends layout
+
+block content
+    h2.text-info Found Items List
+    each foundItem in foundItems
+      .card.mb-3
+        .card-body
+          h5.card-title= foundItem.name
+          p.card-text
+            strong Date Found:
+            | #{foundItem.date_found.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          p.card-text
+            strong Description:
+            | #{foundItem.description}
+          p.card-text
+            strong Contact Number:
+            | #{foundItem.phone_number}
+          p.card-text
+            strong Email:
+            | #{foundItem.email}
+          p.card-text
+            strong Place Found:
+            | #{foundItem.place_found}
+          if foundItem.picture
+             img.card-img-top(src=`${foundItem.picture}`, alt="Found Item Image", style="width: 200px; height: auto;")
+
+         
+         
