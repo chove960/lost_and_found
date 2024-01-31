@@ -46,19 +46,15 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-// Routes
 
-// Home Page
 app.get('/', (req, res) => {
   res.render('index');
 });
 
-// Submit Lost Item Page
 app.get('/submitLostItem', (req, res) => {
   res.render('submitLostItem');
 });
 
-// Handle the submission of a lost item
 app.post('/submitLostItem', upload.single('picture'),(req, res) => {
 
   
@@ -82,7 +78,7 @@ app.post('/submitLostItem', upload.single('picture'),(req, res) => {
   
 });
 
-// Display Lost Items Page
+
 app.get('/lostItems', (req, res) => {
 
     // Retrieve lost items from the database
@@ -93,19 +89,15 @@ app.get('/lostItems', (req, res) => {
     }
 
     
-
-    // Render the page with the retrieved lost items
     res.render('displayLostItem', { lostItems: rows });
   });
   
 });
 
-// Submit Found Item Page
 app.get('/submitFoundItem', (req, res) => {
   res.render('submitFoundItem');
 });
 
-// Handle the submission of a found item
 app.post('/submitFoundItem', upload.single('picture'),(req, res) => {
   const { name, date_found, description, phone_number, email, place_found } = req.body;
 
@@ -121,12 +113,10 @@ app.post('/submitFoundItem', upload.single('picture'),(req, res) => {
       return res.status(500).send('Internal Server Error');
     }
 
-    // Redirect to a success page or render a success view
     res.redirect('/foundItems');
   });
 });
 
-// Display Found Items Page
 app.get('/foundItems', (req, res) => {
   // Retrieve found items from the database
   db.query('SELECT * FROM found_item', (err, rows) => {
@@ -135,17 +125,14 @@ app.get('/foundItems', (req, res) => {
       return res.status(500).send('Internal Server Error');
     }
 
-    // Render the page with the retrieved found items
     res.render('displayFoundItem', { foundItems: rows });
   });
 });
 
-// Contact Us Page
 app.get('/contactUs', (req, res) => {
   res.render('contactUs');
 });
 
-// Handle the submission of the contact form
 app.post('/contactUs', (req, res) => {
   const { name, email, message } = req.body;
 
@@ -159,7 +146,6 @@ app.post('/contactUs', (req, res) => {
       return res.status(500).send('Internal Server Error');
     }
 
-    // Redirect to a success page or render a success view
     res.redirect('/');
   });
 });
